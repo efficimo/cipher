@@ -1,0 +1,81 @@
+{
+  "name": "@efficimo/cipher",
+  "version": "0.1.0",
+  "description": "Cryptographic primitives — AES-256-GCM, PBKDF2, WebAuthn PRF key derivation, CipherVault observable",
+  "author": "efficimo",
+  "license": "MIT",
+  "keywords": [
+    "crypto",
+    "aes-gcm",
+    "pbkdf2",
+    "webauthn",
+    "prf",
+    "cipher",
+    "vault",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/efficimo/cipher.git"
+  },
+  "bugs": {
+    "url": "https://github.com/efficimo/cipher/issues"
+  },
+  "homepage": "https://github.com/efficimo/cipher#readme",
+  "engines": {
+    "node": ">=18"
+  },
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    },
+    "./webauthn": {
+      "import": {
+        "types": "./dist/esm/webauthn.d.ts",
+        "default": "./dist/esm/webauthn.js"
+      },
+      "require": {
+        "types": "./dist/cjs/webauthn.d.ts",
+        "default": "./dist/cjs/webauthn.js"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json && node scripts/postbuild.mjs",
+    "typecheck": "tsc --noEmit",
+    "typecheck:pkg": "tsc -p tsconfig.esm.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "biome ci .",
+    "format": "biome check --write .",
+    "prepublishOnly": "npm run build && npm run typecheck"
+  },
+  "peerDependencies": {
+    "@efficimo/observable": ">=0.1.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.0",
+    "@efficimo/observable": "^0.2.0",
+    "@types/node": "^22.0.0",
+    "jsdom": "^25.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^2.0.0"
+  },
+  "dependencies": {
+    "@efficimo/cipher": "file:"
+  }
+}
