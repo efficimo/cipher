@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { BiometricAuth, isBiometricSupported } from "../webauthn";
+import { BiometricAuth, isBiometricSupported } from "../webauthn.ts";
 
 const fakeRawId = crypto.getRandomValues(new Uint8Array(16)).buffer as ArrayBuffer;
 // Buffer.alloc is native Node.js — avoids jsdom realm instanceof mismatch with webcrypto

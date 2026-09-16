@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { AESVault } from "../AESVault";
-import { deriveKey, generateSalt } from "../core";
+import { AESVault } from "../AESVault.ts";
+import { deriveKey, generateSalt } from "../core.ts";
 
 describe("generateSalt", () => {
   it("returns 16 bytes", () => {

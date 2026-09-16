@@ -1,7 +1,7 @@
 {
   "name": "@efficimo/cipher",
-  "version": "0.1.0",
-  "description": "Cryptographic primitives — AES-256-GCM, PBKDF2, WebAuthn PRF key derivation, CipherVault observable",
+  "version": "0.0.0",
+  "description": "Cryptographic primitives — AES-256-GCM, PBKDF2, RSA-OAEP, WebAuthn PRF key derivation, observable vault",
   "author": "efficimo",
   "license": "MIT",
   "keywords": [
@@ -16,7 +16,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/efficimo/cipher.git"
+    "url": "git+https://github.com/efficimo/cipher.git"
   },
   "bugs": {
     "url": "https://github.com/efficimo/cipher/issues"
@@ -25,7 +25,8 @@
   "engines": {
     "node": ">=18"
   },
-  "type": "module",
+  "type": "commonjs",
+  "sideEffects": false,
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
@@ -52,10 +53,16 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "src",
+    "!src/__tests__"
   ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
   "scripts": {
-    "build": "tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json && node scripts/postbuild.mjs",
+    "build": "rm -rf dist && tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json && node scripts/postbuild.mjs",
     "typecheck": "tsc --noEmit",
     "typecheck:pkg": "tsc -p tsconfig.esm.json --noEmit",
     "test": "vitest run",
@@ -65,17 +72,14 @@
     "prepublishOnly": "npm run build && npm run typecheck"
   },
   "peerDependencies": {
-    "@efficimo/observable": ">=0.1.0"
+    "@efficimo/observable": ">=0.5.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.0",
-    "@efficimo/observable": "^0.2.0",
-    "@types/node": "^22.0.0",
-    "jsdom": "^25.0.0",
-    "typescript": "^5.0.0",
-    "vitest": "^2.0.0"
-  },
-  "dependencies": {
-    "@efficimo/cipher": "file:"
+    "@biomejs/biome": "^2.5.14",
+    "@efficimo/observable": "^0.5.1",
+    "@types/node": "^25.9.7",
+    "jsdom": "^30.0.1",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.1"
   }
 }

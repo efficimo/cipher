@@ -1,4 +1,4 @@
-import type { Cipher } from "./types";
+import type { Cipher } from "./types.ts";
 
 export class FileCipher implements Cipher<string, string> {
   #cipher: Cipher<string, string>;

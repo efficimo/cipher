@@ -1,8 +1,8 @@
 import { ObservableValue } from "@efficimo/observable";
-import { AESVault } from "./AESVault";
-import { vaultKeys } from "./_internals";
-import type { Cipher, WrappedPrivateKey } from "./types";
-import { fromBase64, toBase64 } from "./utils";
+import { vaultKeys } from "./_internals.ts";
+import { AESVault } from "./AESVault.ts";
+import type { Cipher, WrappedPrivateKey } from "./types.ts";
+import { fromBase64, toBase64 } from "./utils.ts";
 
 const IV_LENGTH = 12;
 const SALT_LENGTH = 16;
@@ -73,7 +73,7 @@ export class RSAKeyPair implements Cipher<string, string> {
     return this.#privateKey;
   }
 
-  // -- Cipher<string, string> : chiffrement direct (données < ~214 octets) --
+  // -- Cipher<string, string> : chiffrement direct (données ≤ 190 octets) --
 
   async encrypt(data: string): Promise<string> {
     const encrypted = await crypto.subtle.encrypt(
@@ -144,6 +144,6 @@ export class RSAKeyPair implements Cipher<string, string> {
       extractable,
       ["decrypt", "unwrapKey"],
     );
-    void this.hasPrivateKey.next(true);
+    this.hasPrivateKey.next(true);
   }
 }

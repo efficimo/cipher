@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { AESVault } from "../AESVault";
-import { FileCipher } from "../FileCipher";
-import { RSAKeyPair } from "../RSAKeyPair";
+import { AESVault } from "../AESVault.ts";
+import { FileCipher } from "../FileCipher.ts";
+import { RSAKeyPair } from "../RSAKeyPair.ts";
 
 describe("AESVault", () => {
   it("generate produit un vault déverrouillé", async () => {

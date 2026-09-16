@@ -1,4 +1,27 @@
-node_modules/
+# Build
 dist/
 *.tsbuildinfo
+
+# Dependencies
+node_modules/
+
+# IDE — VSCode
+.vscode/
+
+# IDE — JetBrains (WebStorm, IntelliJ...)
+.idea/
+*.iml
+
+# IDE — Vim/Neovim
+*.swp
+*.swo
+.nvimrc.local
+
+# IDE — Emacs
+*~
+\#*\#
+.dir-locals.el
+
+# OS
 .DS_Store
+Thumbs.db

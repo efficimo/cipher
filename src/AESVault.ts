@@ -1,7 +1,7 @@
 import { ObservableValue } from "@efficimo/observable";
-import { vaultKeys } from "./_internals";
-import type { Cipher } from "./types";
-import { fromBase64, toBase64 } from "./utils";
+import { vaultKeys } from "./_internals.ts";
+import type { Cipher } from "./types.ts";
+import { fromBase64, toBase64 } from "./utils.ts";
 
 const IV_LENGTH = 12;
 
@@ -38,7 +38,7 @@ export class AESVault implements Cipher<string, string> {
 
   lock(): void {
     vaultKeys.delete(this);
-    void this.isUnlocked.next(false);
+    this.isUnlocked.next(false);
   }
 
   #require(): CryptoKey {

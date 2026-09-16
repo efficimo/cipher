@@ -2,8 +2,9 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./dist/cjs",
-    "module": "CommonJS",
-    "moduleResolution": "Node",
+    "types": [],
+    "module": "node16",
+    "moduleResolution": "node16",
     "verbatimModuleSyntax": false
   },
   "exclude": ["src/__tests__/**"]

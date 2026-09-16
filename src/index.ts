@@ -1,5 +1,5 @@
-export type { Cipher, CredentialInfo, KeyDerivationOptions, WrappedPrivateKey } from "./types";
-export { deriveKey, generateSalt } from "./core";
-export { AESVault } from "./AESVault";
-export { RSAKeyPair } from "./RSAKeyPair";
-export { FileCipher } from "./FileCipher";
+export { AESVault } from "./AESVault.ts";
+export { deriveKey, generateSalt } from "./core.ts";
+export { FileCipher } from "./FileCipher.ts";
+export { RSAKeyPair } from "./RSAKeyPair.ts";
+export type { Cipher, CredentialInfo, KeyDerivationOptions, WrappedPrivateKey } from "./types.ts";

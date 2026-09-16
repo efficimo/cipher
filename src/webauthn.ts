@@ -1,4 +1,4 @@
-import type { CredentialInfo } from "./types";
+import type { CredentialInfo } from "./types.ts";
 
 const STORAGE_KEY = "@efficimo/cipher:credentials";
 

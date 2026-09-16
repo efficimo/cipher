@@ -1,4 +1,4 @@
-import type { KeyDerivationOptions } from "./types";
+import type { KeyDerivationOptions } from "./types.ts";
 
 export function generateSalt(): Uint8Array<ArrayBuffer> {
   return crypto.getRandomValues(new Uint8Array(16));
